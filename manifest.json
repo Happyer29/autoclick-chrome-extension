@@ -3,11 +3,20 @@
   "description": "Build an Extension!",
   "version": "0.1",
   "manifest_version": 3,
-  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "webNavigation",
+    "webRequest",
+    "debugger"
+  ],
   "host_permissions": [
     "<all_urls>"
   ],
 
+  "devtools_page": "devtools.html",
   "background": {
     "service_worker": "./background.js"
   }
