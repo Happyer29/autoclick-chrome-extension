@@ -1,6 +1,6 @@
 try {
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) =>{
-    if(changeInfo.status === 'complete' && /^file/.test(tab.url)){ //change to http on prod
+    if(changeInfo.status === 'complete' && /^http/.test(tab.url)){ //change to http on prod
         chrome.scripting.executeScript({
             target: {tabId: tabId},
             files: ["./foreground.js"]
