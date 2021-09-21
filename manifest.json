@@ -13,7 +13,8 @@
     "debugger"
   ],
   "host_permissions": [
-    "*://www.binance.com/*/nft"
+    "*://www.binance.com/*/nft",
+    "<all_urls>"
   ],
   "background": {
     "service_worker": "./background.js"
