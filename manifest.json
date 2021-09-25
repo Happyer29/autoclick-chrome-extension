@@ -1,22 +1,24 @@
 {
-  "name": "Getting Started Example",
-  "description": "Build an Extension!",
-  "version": "0.1",
-  "manifest_version": 3,
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting",
-    "tabs",
-    "webNavigation",
-    "webRequest",
-    "debugger"
+  "name": "JQuery Light",
+  "version": "1",
+  "manifest_version": 2,
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.binance.com/en/nft/home"
+      ],
+      "js": [
+        "jquery-3.6.0.min.js",
+        "foreground.js"
+      ]
+    }
   ],
-  "host_permissions": [
-    "*://www.binance.com/*/nft",
-    "<all_urls>"
-  ],
+
   "background": {
-    "service_worker": "./background.js"
+    "scripts": [
+      "background.js"
+    ]
   }
+
 }
