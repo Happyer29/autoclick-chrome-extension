@@ -47,7 +47,6 @@ $(function () {
     //console.log(bttnMax.textContent);
     //let bttn = document.querySelector('.css-1bpso26:first-of-type');
     let bttn = contains("button", "Купить");
-    var stop = 0;
 
 
     setInterval(function () {
@@ -69,10 +68,10 @@ $(function () {
 
 
     async function simulateEvent(element, eventName) {
-        var options = extend(defaultOptions, arguments[2] || {});
-        var oEvent, eventType = null;
+        let options = extend(defaultOptions, arguments[2] || {});
+        let oEvent, eventType = null;
 
-        for (var name in eventMatchers) {
+        for (let name in eventMatchers) {
             if (eventMatchers[name].test(eventName)) {
                 eventType = name;
                 break;
@@ -84,7 +83,7 @@ $(function () {
 
         if (document.createEvent) {
             oEvent = document.createEvent(eventType);
-            if (eventType == 'HTMLEvents') {
+            if (eventType === 'HTMLEvents') {
                 oEvent.initEvent(eventName, options.bubbles, options.cancelable);
             } else {
                 oEvent.initMouseEvent(eventName, options.bubbles, options.cancelable, document.defaultView,
@@ -95,7 +94,7 @@ $(function () {
         } else {
             options.clientX = options.pointerX;
             options.clientY = options.pointerY;
-            var evt = document.createEventObject();
+            let evt = document.createEventObject();
             oEvent = extend(evt, options);
             element.fireEvent('on' + eventName, oEvent);
         }
@@ -103,16 +102,16 @@ $(function () {
     }
 
     function extend(destination, source) {
-        for (var property in source)
+        for (let property in source)
             destination[property] = source[property];
         return destination;
     }
 
-    var eventMatchers = {
+    const eventMatchers = {
         'HTMLEvents': /^(?:load|unload|abort|error|select|change|submit|reset|focus|blur|resize|scroll)$/,
         'MouseEvents': /^(?:click|dblclick|mouse(?:down|up|over|move|out))$/
     }
-    var defaultOptions = {
+    const defaultOptions = {
         pointerX: 0,
         pointerY: 0,
         button: 0,
